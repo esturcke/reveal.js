@@ -42,14 +42,14 @@ __END__
 
 =head1 NAME
 
-  make-slides.pl - Markdown to reveal.js presentation processor  
+  reveal - Markdown to reveal.js presentation processor  
 
 =head1 SYNOPSIS
 
-  make-slides.pl < [file]
-  make-slides.pl [file]
-  make-slides.pl [file] -d [outdir]
-  make-slides.pl [file] -t [template]  
+  reveal < [file]
+  reveal [file]
+  reveal [file] -d [outdir]
+  reveal [file] -t [template]  
 
 =head1 OPTIONS
 
