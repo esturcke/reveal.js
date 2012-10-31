@@ -36,7 +36,7 @@ $tt->process($template, {
 }, "$directory/index.html") || die $tt->error();
 
 # copy support files
-`cp -r $FindBin::Bin/../{lib,js,plugin,css} $directory`;
+`rsync -r $FindBin::Bin/../{lib,js,plugin,css} $directory`;
 
 __END__
 
