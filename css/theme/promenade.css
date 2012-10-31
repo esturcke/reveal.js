@@ -1,0 +1,69 @@
+.reveal {
+	font-family: 'Avenir Next';
+	font-size: 22px;
+	font-weight: 200;
+}
+
+.reveal p {
+    line-height: 1.5em;
+}
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+
+body {	
+    color: #ddd;
+	background: #111;
+    text-rendering: optimizeLegibility;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+
+.reveal h1, 
+.reveal h2, 
+.reveal h3, 
+.reveal h4, 
+.reveal h5, 
+.reveal h6 {
+	color: #963;
+    margin-bottom: 0.5em;
+    line-height: 1.2em;
+}
+
+.reveal h2 {
+    font-size : 1.5em;
+}
+
+.reveal h1 em, 
+.reveal h2 em, 
+.reveal h3 em, 
+.reveal h4 em, 
+.reveal h5 em, 
+.reveal h6 em {
+    font-style: normal;
+    font-weight: 100;
+    opacity : 0.9;
+}
+
+.reveal .slides {
+    text-align: left;
+    max-width: 1000px;
+    margin-top: -390px;
+}
+
+.reveal blockquote {
+    font-size : 0.7em;
+    background: none;
+    font-style: normal;
+    margin-left: 4em;
+    opacity: 0.7;
+}
+
+.reveal blockquote::after,
+.reveal blockquote::before {
+    content : '';
+}
+
