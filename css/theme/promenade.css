@@ -1,40 +1,110 @@
-.reveal {
-	font-family: 'Avenir Next';
-	font-size: 22px;
-	font-weight: 200;
-}
-
-.reveal p {
-    line-height: 1.5em;
-}
-
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
-
 body {	
-    color: #ddd;
-	background: #111;
+    color: #aa9;
+
+	background: #000;
     text-rendering: optimizeLegibility;
+}
+
+.reveal a {
+    color : #ccc;
+    opacity : 0.5;
+}
+
+.reveal {
+    font        : 38px/48px 'Chaparral Pro', serif;
+    text-shadow : 0px 2px 0px rgba(0,0,0,0.9), 0px 4px 0px rgba(0,0,0,0.9);
+}
+
+.reveal .slides {
+    width: 1280px;
+    height: 1024px;
+    margin: auto;
+    position: relative;
+    background : #333;
+    background-image : url(../../media/bg.jpg);
+    padding: 0;
+    left: 0;
+    top: 0;
+
+    text-align : left;
+    max-width  : none;
+    max-height : none;
+    
+    overflow : hidden;
+    
+    /*scale : 75%*/;
+}
+
+.reveal li {
+    margin-bottom: 16px;
+}
+
+.reveal li i {
+    opacity : 0.5;
+}   
+
+.reveal .slides section {
+    position : absolute;
+    top      : 64px;
+    bottom   : 64px;
+    left     : 64px;
+    right    : 64px;
+    margin   : 0; 
+    padding  : 0;
+    width    : auto;
 }
 
 /*********************************************
  * HEADERS
  *********************************************/
+.reveal h1 {
+    font           : 116px/128px 'Gotham Condensed', sans-serif; 
+    text-align     : center;
+    font-weight    : 600;
+    display        : table-cell;
+    height         : 896px;
+    width          : 1184px;
+    vertical-align : middle;
+    text-transform : uppercase;
+    text-shadow    : 0px 6px 0px rgba(0,0,0,0.9), 0px 12px 0px rgba(0,0,0,0.9);
+}
 
-.reveal h1, 
-.reveal h2, 
+.reveal h2 {
+    font           : 74px/96px 'Gotham Condensed', sans-serif; 
+    font-weight    : 600;
+    text-transform : uppercase;
+    text-shadow    : 0px 4px 0px rgba(0,0,0,0.9), 0px 8px 0px rgba(0,0,0,0.9);
+    margin-bottom  : 16px;
+}
 .reveal h3, 
 .reveal h4, 
 .reveal h5, 
 .reveal h6 {
 	color: #963;
-    margin-bottom: 0.5em;
-    line-height: 1.2em;
 }
 
 .reveal h2 {
-    font-size : 1.5em;
+}
+
+.reveal s {
+    opacity : 0.33;
+}
+
+.reveal th {
+    font-weight : 800;
+    color       : #966;
+}
+
+.reveal table i {
+    font-weight : 100;
+    opacity     : 0.5;
+}
+
+.reveal table td {
+    padding-bottom : 16px;
 }
 
 .reveal h1 em, 
@@ -43,27 +113,116 @@ body {
 .reveal h4 em, 
 .reveal h5 em, 
 .reveal h6 em {
-    font-style: normal;
-    font-weight: 100;
-    opacity : 0.9;
+    font-style  : normal;
+    color       : #966;
 }
 
-.reveal .slides {
-    text-align: left;
-    max-width: 1000px;
-    margin-top: -390px;
+.reveal small {
+    font-size   : 18px;
+    line-height : 32px;
+    color       : #555; 
+}
+
+.reveal .layout {
+    position: relative;
+}
+
+.reveal .column {
+    position : absolute;
+    left     : 0;
+    top      : 0;
+    width    : 192px;
+}
+.reveal .column.one        { left  :   0px }
+.reveal .column.two        { left  : 240px }
+.reveal .column.three      { left  : 480px }
+.reveal .column.four       { left  : 720px }
+.reveal .column.five       { left  : 960px }
+.reveal .column.one-wide   { width : 192px }
+.reveal .column.two-wide   { width : 432px }
+.reveal .column.three-wide { width : 672px }
+.reveal .column.four-wide  { width : 912px }
+
+
+.reveal p {
+    margin-top    : 0px;
+    margin-bottom : 64px;
+    -webkit-margin-before : 0;
+    -webkit-margin-after  : 0;
+}
+
+.reveal .full-page {
+    position : absolute;
+    left     : -64px;
+    right    : -64px;
+    top      : -64px;
+    bottom   : -64px;
+    overflow : hidden;
+}
+
+
+
+.reveal video.full,
+.reveal img.full,
+.reveal .full-page img {
+    width    : 100%;
 }
 
 .reveal blockquote {
-    font-size : 0.7em;
+    position: absolute;
     background: none;
-    font-style: normal;
-    margin-left: 4em;
-    opacity: 0.7;
+    font-style: italic;
+    margin    : 0;
+    padding   : 0;
+    opacity   : 0.7;
+    z-index : 1;
+    box-shadow : none;
+    -webkit-margin-start  : 0;
+    -webkit-margin-end    : 0;
+    -webkit-margin-before : 0;
+    -webkit-margin-after  : 0;
 }
 
-.reveal blockquote::after,
 .reveal blockquote::before {
+    position  : absolute;
+    color     : #dd5533;
+    font-size : 300px;
+    z-index : -1;
+    top: 120px;
+    left: -64px;
+    opacity : 0.2;
+}
+
+.reveal div.question {
+    display        : table-cell;
+    vertical-align : middle;
+    position       : absolute;
+    font-style     : italic;
+    margin         : 0;
+    padding        : 0;
+    z-index        : 1;
+    font-size      : 52px;
+    line-height    : 64px;
+    top            : 64px;
+    bottom         : 64px;
+    left           : 64px;
+    right          : 64px;
+}
+
+.reveal div.question::before {
+    content   : 'Question: ';
+    display   : block;
+    color     : #dd5533;
+    font-size : 128px;
+    z-index : -1;
+    top: 120px;
+    left: -64px;
+    opacity : 0.2;
+    text-weight: 100;
+    margin-bottom: 32px;
+}
+
+.reveal blockquote::after {
     content : '';
 }
 
