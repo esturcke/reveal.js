@@ -8,35 +8,63 @@ use FindBin;
 use Pod::Usage;
 use Getopt::Long;
 use Template;
+use File::Monitor;
 
 my $template  = "$FindBin::Bin/slides.tt";
+my $support   = "$FindBin::Bin/../{lib,js,plugin,css}";
+my @watch     = "$FindBin::Bin/../css/theme/promenade.css";
 my $directory = "./slides/";
 my $verbose;
+my $watch;
 
 GetOptions(
     'help|?'      => sub { pod2usage(1) },
     'man'         => sub { pod2usage( { -verbose => 2, -noperldoc => 1 } ) },
     'verbose'     => \$verbose,
+    'watch'       => \$watch,
     'directory=s' => \$directory,
     'template=s'  => \$template,
 ) or pod2usage(2);
 
-# two blank lines separate slides
-my @slides = split /\n{3,}/, join "", <>;
+# get file name
+my ($file) = @ARGV or pod2usage(2);
 
-# honor line breaks
-for (@slides) {
-    s/\n/  \n/g;
+# process once
+process();
+
+# continue to process if in watch mode
+if ($watch) {
+    my $monitor = File::Monitor->new();
+    $monitor->watch($file);
+    $monitor->watch($_) for @watch;
+    $monitor->scan;
+    while (1) {
+        sleep 1;
+        process() if $monitor->scan;
+    }
 }
 
-# process
-my $tt = Template->new({ ABSOLUTE => 1 });
-$tt->process($template, {
-    slides => \@slides,
-}, "$directory/index.html") || die $tt->error();
+sub process {
+    say "Processing..." if $verbose;
 
-# copy support files
-`rsync -r $FindBin::Bin/../{lib,js,plugin,css} $directory`;
+    # open source file
+    open my $fh, '<', $file or die "Failed to open $file: $!";
+
+    # two blank lines separate slides
+    my @slides = split /\n{3,}/, join "", <$fh>;
+
+    # honor line breaks
+    s/\n/  \n/g for @slides;
+
+    # process template
+    my $tt = Template->new({ ABSOLUTE => 1 });
+    $tt->process($template, {
+        slides => \@slides,
+    }, "$directory/index.html") || die $tt->error();
+
+    # copy support files
+    `rsync -v -r $support $directory`;
+}
 
 __END__
 
@@ -46,10 +74,10 @@ __END__
 
 =head1 SYNOPSIS
 
-  reveal < [file]
   reveal [file]
   reveal [file] -d [outdir]
   reveal [file] -t [template]  
+  reveal [file] --watch
 
 =head1 OPTIONS
 
