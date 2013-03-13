@@ -9,10 +9,11 @@ use Pod::Usage;
 use Getopt::Long;
 use Template;
 use File::Monitor;
+use Cwd qw/abs_path/;
 
-my $template  = "$FindBin::Bin/slides.tt";
-my $support   = "$FindBin::Bin/../{lib,js,plugin,css}";
-my @watch     = "$FindBin::Bin/../css/theme/promenade.css";
+my $template  = "$FindBin::RealBin/slides.tt";
+my $support   = "$FindBin::RealBin/../{lib,js,plugin,css}";
+my @watch     = "$FindBin::RealBin/../css/theme/promenade.css";
 my $directory = "./slides/";
 my $verbose;
 my $watch;
