@@ -21,7 +21,6 @@ body {
 /*********************************************
  * HEADERS
  *********************************************/
-
 .reveal h1, 
 .reveal h2, 
 .reveal h3, 
@@ -46,6 +45,10 @@ body {
     font-style: normal;
     font-weight: 100;
     opacity : 0.9;
+}
+
+.reveal .slides>section {
+    top: 0;
 }
 
 .reveal .slides {
