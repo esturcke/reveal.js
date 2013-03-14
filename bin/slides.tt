@@ -24,21 +24,22 @@
     Reveal.initialize({
 
       /* display size*/
-      width    : 1024,
-      height   : 768,
-      margin   : 0,
-      minScale : 0.1,
-      maxScale : 10,
+      width      : 1024,
+      height     : 768,
+      margin     : 0,
+      minScale   : 0.1,
+      maxScale   : 10,
 
       /* default overrides */
-      controls: false,
-      progress: false,
-      history: true,
-      overview: false,
-      transition: 'fade',
+      controls   : false,
+      progress   : false,
+      history    : true,
+      center     : false,
+      overview   : false,
+      transition : 'none',
 
       /* custom theme */
-      theme: 'promenade',
+      theme: 'morningcries',
 
       /* plugins */
       dependencies: [
