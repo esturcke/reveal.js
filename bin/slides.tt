@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/theme/morningcries.css" id="theme">
   </head>
   <body>
     <div class="reveal">
@@ -37,9 +37,6 @@
       center     : false,
       overview   : false,
       transition : 'none',
-
-      /* custom theme */
-      theme: 'morningcries',
 
       /* plugins */
       dependencies: [
